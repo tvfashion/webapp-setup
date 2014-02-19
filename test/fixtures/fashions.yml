@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  match: false
+  charPic: MyString
+  productPic: MyString
+  productLink: MyString
+  episode_id: 1
+  show_id: 1
+  season_id: 1
+  character_id: 1
+
+two:
+  name: MyString
+  match: false
+  charPic: MyString
+  productPic: MyString
+  productLink: MyString
+  episode_id: 1
+  show_id: 1
+  season_id: 1
+  character_id: 1

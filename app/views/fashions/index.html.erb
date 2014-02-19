@@ -1,0 +1,43 @@
+<h1>Listing fashions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Match</th>
+      <th>Charpic</th>
+      <th>Productpic</th>
+      <th>Productlink</th>
+      <th>Episode</th>
+      <th>Show</th>
+      <th>Season</th>
+      <th>Character</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fashions.each do |fashion| %>
+      <tr>
+        <td><%= fashion.name %></td>
+        <td><%= fashion.match %></td>
+        <td><%= fashion.charPic %></td>
+        <td><%= fashion.productPic %></td>
+        <td><%= fashion.productLink %></td>
+        <td><%= fashion.episode_id %></td>
+        <td><%= fashion.show_id %></td>
+        <td><%= fashion.season_id %></td>
+        <td><%= fashion.character_id %></td>
+        <td><%= link_to 'Show', fashion %></td>
+        <td><%= link_to 'Edit', edit_fashion_path(fashion) %></td>
+        <td><%= link_to 'Destroy', fashion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fashion', new_fashion_path %>

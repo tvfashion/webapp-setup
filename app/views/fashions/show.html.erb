@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fashion.name %>
+</p>
+
+<p>
+  <strong>Match:</strong>
+  <%= @fashion.match %>
+</p>
+
+<p>
+  <strong>Charpic:</strong>
+  <%= @fashion.charPic %>
+</p>
+
+<p>
+  <strong>Productpic:</strong>
+  <%= @fashion.productPic %>
+</p>
+
+<p>
+  <strong>Productlink:</strong>
+  <%= @fashion.productLink %>
+</p>
+
+<p>
+  <strong>Episode:</strong>
+  <%= @fashion.episode_id %>
+</p>
+
+<p>
+  <strong>Show:</strong>
+  <%= @fashion.show_id %>
+</p>
+
+<p>
+  <strong>Season:</strong>
+  <%= @fashion.season_id %>
+</p>
+
+<p>
+  <strong>Character:</strong>
+  <%= @fashion.character_id %>
+</p>
+
+<%= link_to 'Edit', edit_fashion_path(@fashion) %> |
+<%= link_to 'Back', fashions_path %>

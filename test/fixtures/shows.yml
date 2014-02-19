@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  banner: MyString
+  overview: MyText
+  network: MyString
+  airsDayOfWeek: MyString
+  airsTime: MyString
+  genres: MyString
+  rating: MyString
+  runtime: 1
+  status: MyString
+  fanart: MyString
+  poster: MyString
+
+two:
+  name: MyString
+  banner: MyString
+  overview: MyText
+  network: MyString
+  airsDayOfWeek: MyString
+  airsTime: MyString
+  genres: MyString
+  rating: MyString
+  runtime: 1
+  status: MyString
+  fanart: MyString
+  poster: MyString

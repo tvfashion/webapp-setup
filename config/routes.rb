@@ -1,13 +1,21 @@
 Tvshows::Application.routes.draw do
+
+  root 'shows#index'
+
   resources :shows
-
   resources :fashions
-
   resources :seasons
-
   resources :episodes
-
   resources :characters
+
+  # resources :shows do
+  #   resources :characters
+  #   resources :seasons do
+  #     resources :episodes do
+  #        resources :fashions
+  #     end
+  #   end
+  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

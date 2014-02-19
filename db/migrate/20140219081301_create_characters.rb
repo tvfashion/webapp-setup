@@ -4,8 +4,8 @@ class CreateCharacters < ActiveRecord::Migration
       t.string :image
       t.string :name
       t.string :role
-      t.string :show_id
-      t.string :episode_id
+      t.integer :show_id
+      t.integer :episode_id
 
       t.timestamps
     end

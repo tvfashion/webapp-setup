@@ -1,4 +1,4 @@
-<%= form_for(@fashion) do |f| %>
+<%= form_for([@show, @season, @episode, @fashion]) do |f| %>
   <% if @fashion.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@fashion.errors.count, "error") %> prohibited this fashion from being saved:</h2>

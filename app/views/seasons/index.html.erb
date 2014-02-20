@@ -18,9 +18,9 @@
         <td><%= season.name %></td>
         <td><%= season.image %></td>
         <td><%= season.show_id %></td>
-        <td><%= link_to 'Show', season %></td>
-        <td><%= link_to 'Edit', edit_season_path(season) %></td>
-        <td><%= link_to 'Destroy', season, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', show_season_path(@show, season) %></td>
+        <td><%= link_to 'Edit', edit_show_season_path(@show, season) %></td>
+        <td><%= link_to 'Destroy', show_season_path(@show, season), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Season', new_season_path %>
+<%= link_to 'New Season', new_show_season_path %>

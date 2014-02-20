@@ -4,7 +4,9 @@ class EpisodesController < ApplicationController
   # GET /episodes
   # GET /episodes.json
   def index
-    @episodes = Episode.all
+    @show = Show.find(params[:show_id])
+    @season = @show.seasons.find(params[:season_id])
+    @episodes = @season.episodes
   end
 
   # GET /episodes/1
@@ -14,7 +16,9 @@ class EpisodesController < ApplicationController
 
   # GET /episodes/new
   def new
-    @episode = Episode.new
+    @show = Show.find(params[:show_id])
+    @season = @show.seasons.find(params[:season_id])
+    @episode = @season.episodes.new
   end
 
   # GET /episodes/1/edit
@@ -24,11 +28,13 @@ class EpisodesController < ApplicationController
   # POST /episodes
   # POST /episodes.json
   def create
-    @episode = Episode.new(episode_params)
+    @show = Show.find(params[:show_id])
+    @season = @show.seasons.find(params[:season_id])
+    @episode = @season.episodes.new(episode_params)
 
     respond_to do |format|
       if @episode.save
-        format.html { redirect_to @episode, notice: 'Episode was successfully created.' }
+        format.html { redirect_to show_season_episode_path(@show, @season, @episode), notice: 'Episode was successfully created.' }
         format.json { render action: 'show', status: :created, location: @episode }
       else
         format.html { render action: 'new' }
@@ -42,7 +48,7 @@ class EpisodesController < ApplicationController
   def update
     respond_to do |format|
       if @episode.update(episode_params)
-        format.html { redirect_to @episode, notice: 'Episode was successfully updated.' }
+        format.html { redirect_to show_season_episode_path(@show, @season, @episode), notice: 'Episode was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +62,7 @@ class EpisodesController < ApplicationController
   def destroy
     @episode.destroy
     respond_to do |format|
-      format.html { redirect_to episodes_url }
+      format.html { redirect_to show_season_episodes_url }
       format.json { head :no_content }
     end
   end
@@ -64,7 +70,9 @@ class EpisodesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_episode
-      @episode = Episode.find(params[:id])
+      @show = Show.find(params[:show_id])
+      @season = @show.seasons.find(params[:season_id])
+      @episode = @season.episodes.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

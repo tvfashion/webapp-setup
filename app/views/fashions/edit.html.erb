@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @fashion %> |
-<%= link_to 'Back', fashions_path %>
+<%= link_to 'Show', show_season_episode_fashion_path(@show, @season, @episode, @fashion) %> |
+<%= link_to 'Back', show_season_episode_fashions_path %>

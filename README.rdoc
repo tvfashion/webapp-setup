@@ -1,2 +1,3 @@
 == README
 
+Added to codeship.io

@@ -33,6 +33,9 @@ class ShowsController < ApplicationController
     series = tvdb.get_series_by_id(show.first["seriesid"])
     #  getting data eg.
     #  series.network
+
+    # example of creating record from pulled data:
+    # Show.create(name: show.first["SeriesName"]).save
     episode1 = series.get_episode(1, 4)
     # binding.pry
 

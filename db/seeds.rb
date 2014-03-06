@@ -14,4 +14,15 @@ episode = Episode.create(number: 1, name: "episode1", overview: "lorem ipsum..."
 character = Character.create(name: "character1", show_id: show.id, episode_id: episode.id)
 fashion = Fashion.create(name: "fashion1", character_id: character.id, season_id: season.id, show_id: show.id, episode_id: episode.id)
 
+puts 'ROLES'
+["admin", "middleuser1", "middleuser2", "basicuser"].each do |role|
+  Role.find_or_create_by_name(role)
+  puts 'role: ' << role
+end
+
+user = User.create(email: "admin@example.com", password: "admin123", password_confirmation: "admin123")
+user.save
+user.add_role "admin"
+
+
 puts "Done!"

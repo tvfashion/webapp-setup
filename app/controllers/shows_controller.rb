@@ -1,4 +1,5 @@
 class ShowsController < ApplicationController
+  # load_and_authorize_resource
   before_action :set_show, only: [:show, :edit, :update, :destroy]
 
   # GET /shows
@@ -25,6 +26,15 @@ class ShowsController < ApplicationController
   # POST /shows.json
   def create
     @show = Show.new(show_params)
+
+    # pull data from thedb
+    tvdb = TvdbParty::Search.new("A0FB32A47B288FA2")
+    show = tvdb.search(params[:show][:name])
+    series = tvdb.get_series_by_id(show.first["seriesid"])
+    #  getting data eg.
+    #  series.network
+    episode1 = series.get_episode(1, 4)
+    # binding.pry
 
     respond_to do |format|
       if @show.save

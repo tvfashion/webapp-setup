@@ -18,6 +18,17 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use to authentication
 gem 'devise'
 
+# debugging
+gem 'pry'
+
+# api thedvb
+gem 'tvdb_party'
+
+# gem to roles
+gem 'rolify'
+
+# behavior authorization
+gem 'cancan'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

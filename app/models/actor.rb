@@ -1,4 +1,4 @@
-class Character < ActiveRecord::Base
+class Actor < ActiveRecord::Base
 
   # associations
   belongs_to :show

@@ -22,7 +22,7 @@ gem 'devise'
 gem 'pry'
 
 # api thedvb
-gem 'tvdb_party'
+gem 'tvdb_party', :git => 'git://github.com/davidpan/tvdb_party.git'
 
 # gem to roles
 gem 'rolify'
@@ -44,6 +44,13 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'html2haml'
+  gem 'quiet_assets'
 end
 
 # Use ActiveModel has_secure_password

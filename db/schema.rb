@@ -11,25 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303081820) do
+ActiveRecord::Schema.define(version: 20140318120939) do
 
-  create_table "characters", force: true do |t|
-    t.string   "image"
+  create_table "actors", force: true do |t|
+    t.integer  "actor_id"
     t.string   "name"
     t.string   "role"
-    t.integer  "show_id"
-    t.integer  "episode_id"
+    t.string   "image"
+    t.integer  "series_id"
+    t.string   "sort_order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "banners", force: true do |t|
+    t.string   "banner_type"
+    t.string   "banner_type2"
+    t.string   "season"
+    t.string   "path"
+    t.string   "language"
+    t.integer  "series_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "episodes", force: true do |t|
+    t.integer  "episode_id"
+    t.integer  "season_number"
     t.integer  "number"
     t.string   "name"
     t.text     "overview"
-    t.string   "thumbnail"
+    t.text     "thumb"
+    t.string   "air_date"
+    t.integer  "guest_stars"
+    t.string   "director"
+    t.string   "writer"
+    t.integer  "series_id"
     t.integer  "season_id"
-    t.integer  "show_id"
+    t.integer  "rating"
+    t.integer  "rating_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,18 +88,21 @@ ActiveRecord::Schema.define(version: 20140303081820) do
   end
 
   create_table "shows", force: true do |t|
+    t.integer  "series_id"
     t.string   "name"
-    t.string   "banner"
     t.text     "overview"
-    t.string   "network"
-    t.string   "airsDayOfWeek"
-    t.string   "airsTime"
+    t.string   "first_aired"
     t.string   "genres"
-    t.string   "rating"
-    t.integer  "runtime"
+    t.string   "network"
+    t.integer  "rating"
+    t.string   "runtime"
+    t.string   "air_time"
+    t.integer  "imdb_id"
+    t.integer  "episodes_count"
+    t.integer  "actors_count"
     t.string   "status"
-    t.string   "fanart"
-    t.string   "poster"
+    t.string   "airs_dayofweek"
+    t.integer  "rating_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

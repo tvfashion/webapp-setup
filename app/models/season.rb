@@ -3,7 +3,7 @@ class Season < ActiveRecord::Base
   # associations
   belongs_to :show
   has_many :episodes
-  has_many :characters
+  has_many :actors
   has_many :fashions
 
   # example validation

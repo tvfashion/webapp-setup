@@ -29,7 +29,7 @@
         <td><%= fashion.episode_id %></td>
         <td><%= fashion.show_id %></td>
         <td><%= fashion.season_id %></td>
-        <td><%= fashion.character_id %></td>
+        <td><%= fashion.actor_id %></td>
         <td><%= link_to 'Show', show_season_episode_fashion_path(@show, @season, @episode, fashion) %></td>
         <td><%= link_to 'Edit', edit_show_season_episode_fashion_path(@show, @season, @episode, fashion) %></td>
         <td><%= link_to 'Destroy', show_season_episode_fashion_path(@show, @season, @episode, fashion), method: :delete, data: { confirm: 'Are you sure?' } %></td>

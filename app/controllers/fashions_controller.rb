@@ -81,6 +81,6 @@ class FashionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fashion_params
-      params.require(:fashion).permit(:name, :match, :charPic, :productPic, :productLink, :episode_id, :show_id, :season_id, :character_id)
+      params.require(:fashion).permit(:name, :match, :charPic, :productPic, :productLink, :episode_id, :show_id, :season_id, :actor_id)
     end
 end

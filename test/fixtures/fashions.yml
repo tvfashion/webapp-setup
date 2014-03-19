@@ -9,7 +9,7 @@ one:
   episode_id: 1
   show_id: 1
   season_id: 1
-  character_id: 1
+  actor_id: 1
 
 two:
   name: MyString
@@ -20,4 +20,4 @@ two:
   episode_id: 1
   show_id: 1
   season_id: 1
-  character_id: 1
+  actor_id: 1

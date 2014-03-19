@@ -9,7 +9,7 @@ class CreateFashions < ActiveRecord::Migration
       t.integer :episode_id
       t.integer :show_id
       t.integer :season_id
-      t.integer :character_id
+      t.integer :actor_id
 
       t.timestamps
     end

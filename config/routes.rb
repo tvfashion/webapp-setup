@@ -8,10 +8,10 @@ Tvshows::Application.routes.draw do
   # resources :fashions
   # resources :seasons
   # resources :episodes
-  # resources :characters
+  # resources :actors
 
   resources :shows do
-    resources :characters
+    resources :actors
     resources :seasons do
       resources :episodes do
          resources :fashions

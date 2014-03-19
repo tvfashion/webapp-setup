@@ -4,7 +4,7 @@ class Fashion < ActiveRecord::Base
   belongs_to :episode
   belongs_to :show
   belongs_to :season
-  belongs_to :character
+  belongs_to :actor
 
   # example validation
   validates :name, presence: true, length: { minimum: 2 }

@@ -1,4 +1,4 @@
-json.array!(@actors) do |character|
-  json.extract! character, :id, :image, :name, :role, :show_id, :episode_id
-  json.url character_url(character, format: :json)
+json.array!(@actors) do |actor|
+  json.extract! actor, :id, :image, :name, :role, :series_id
+  json.url actor_url(actor, format: :json)
 end

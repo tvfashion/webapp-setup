@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140318120939) do
     t.integer  "episode_id"
     t.integer  "show_id"
     t.integer  "season_id"
-    t.integer  "character_id"
+    t.integer  "actor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

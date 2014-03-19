@@ -15,16 +15,16 @@
   </thead>
 
   <tbody>
-    <% @actors.each do |character| %>
+    <% @actors.each do |actor| %>
       <tr>
-        <td><%= character.image %></td>
-        <td><%= character.name %></td>
-        <td><%= character.role %></td>
-        <td><%= character.show_id %></td>
-        <td><%= character.episode_id %></td>
-        <td><%= link_to 'Show', character %></td>
-        <td><%= link_to 'Edit', edit_character_path(character) %></td>
-        <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= actor.image %></td>
+        <td><%= actor.name %></td>
+        <td><%= actor.role %></td>
+        <td><%= actor.series_id %></td>
+        <td><%= actor.sort_order %></td>
+        <td><%= link_to 'Show', actor %></td>
+        <td><%= link_to 'Edit', edit_actor_path(actor) %></td>
+        <td><%= link_to 'Destroy', actor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Character', new_character_path %>
+<%= link_to 'New Actor', new_actor_path %>

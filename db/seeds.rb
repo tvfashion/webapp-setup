@@ -11,7 +11,7 @@ puts "seeding sample objects..."
 show = Show.create(name: "show1", overview: "lorem ipsum...")
 season = Season.create(name: "season1", show_id: show.id)
 episode = Episode.create(number: 1, name: "episode1", overview: "lorem ipsum...", season_id: season.id, show_id: show.id)
-actor = Actor.create(name: "character1", show_id: show.id, episode_id: episode.id)
+actor = Actor.create(name: "actor1", show_id: show.id, episode_id: episode.id)
 fashion = Fashion.create(name: "fashion1", actor_id: actor.id, season_id: season.id, show_id: show.id, episode_id: episode.id)
 
 puts 'ROLES'

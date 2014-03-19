@@ -7,7 +7,7 @@
 
 <p>
   <strong>Banner:</strong>
-  <%= @show.banner %>
+  <%=  %>
 </p>
 
 <p>
@@ -22,13 +22,9 @@
 
 <p>
   <strong>Airsdayofweek:</strong>
-  <%= @show.airsDayOfWeek %>
+  <%= @show.airs_dayofweek %>
 </p>
 
-<p>
-  <strong>Airstime:</strong>
-  <%= @show.airsTime %>
-</p>
 
 <p>
   <strong>Genres:</strong>
@@ -50,15 +46,6 @@
   <%= @show.status %>
 </p>
 
-<p>
-  <strong>Fanart:</strong>
-  <%= @show.fanart %>
-</p>
-
-<p>
-  <strong>Poster:</strong>
-  <%= @show.poster %>
-</p>
 
 <%= link_to 'Edit', edit_show_path(@show) %> |
 <%= link_to 'Back', shows_path %>

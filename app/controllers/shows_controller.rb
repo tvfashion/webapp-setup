@@ -46,7 +46,7 @@ class ShowsController < ApplicationController
       runtime: series.runtime,
       air_time: series.air_time,
       imdb_id: series.imdb_id,
-      seasons_count: seasons.length,
+#      seasons_count: seasons.length,
       episodes_count: episodes.length,
       actors_count: actors.length,
       status: series.status,

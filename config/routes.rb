@@ -4,11 +4,11 @@ Tvshows::Application.routes.draw do
   devise_for :users
   root 'shows#index'
 
-    resources :shows
-    resources :fashions
-    resources :seasons
-    resources :episodes
-    resources :actors
+  resources :shows
+  resources :fashions
+  resources :seasons
+  resources :episodes
+  resources :actors
 
   resources :shows do
     resources :actors

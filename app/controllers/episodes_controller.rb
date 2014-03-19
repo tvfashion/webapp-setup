@@ -4,9 +4,9 @@ class EpisodesController < ApplicationController
   # GET /episodes
   # GET /episodes.json
   def index
-    @show = Show.find(params[:show_id])
-    @season = @show.seasons.find(params[:season_id])
-    @episodes = @season.episodes
+    # @show = Show.find(params[:show_id])
+    # @season = @show.seasons.find(params[:season_id])
+    @episodes = Episode.all
   end
 
   # GET /episodes/1
@@ -16,9 +16,9 @@ class EpisodesController < ApplicationController
 
   # GET /episodes/new
   def new
-    @show = Show.find(params[:show_id])
-    @season = @show.seasons.find(params[:season_id])
-    @episode = @season.episodes.new
+    # @show = Show.find(params[:show_id])
+    # @season = @show.seasons.find(params[:season_id])
+    # @episode = @season.episodes.new
   end
 
   # GET /episodes/1/edit
@@ -28,19 +28,19 @@ class EpisodesController < ApplicationController
   # POST /episodes
   # POST /episodes.json
   def create
-    @show = Show.find(params[:show_id])
-    @season = @show.seasons.find(params[:season_id])
-    @episode = @season.episodes.new(episode_params)
+    # @show = Show.find(params[:show_id])
+    # @season = @show.seasons.find(params[:season_id])
+    # @episode = @season.episodes.new(episode_params)
 
-    respond_to do |format|
-      if @episode.save
-        format.html { redirect_to show_season_episode_path(@show, @season, @episode), notice: 'Episode was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @episode }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @episode.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @episode.save
+    #     format.html { redirect_to show_season_episode_path(@show, @season, @episode), notice: 'Episode was successfully created.' }
+    #     format.json { render action: 'show', status: :created, location: @episode }
+    #   else
+    #     format.html { render action: 'new' }
+    #     format.json { render json: @episode.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /episodes/1
@@ -70,9 +70,7 @@ class EpisodesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_episode
-      @show = Show.find(params[:show_id])
-      @season = @show.seasons.find(params[:season_id])
-      @episode = @season.episodes.find(params[:id])
+      @episode = Episode.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

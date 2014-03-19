@@ -8,8 +8,12 @@
       <th>Overview</th>
       <th>Thumbnail</th>
       <th>Season</th>
-      <th>Show</th>
-      <th></th>
+      <th>Air date</th>
+      <th>Guest stars</th>
+      <th>Director</th>
+      <th>Writer</th>
+      <th>Rating</th>
+      <th>Rating count</th>
       <th></th>
       <th></th>
     </tr>
@@ -21,17 +25,17 @@
         <td><%= episode.number %></td>
         <td><%= episode.name %></td>
         <td><%= episode.overview %></td>
-        <td><%= episode.thumbnail %></td>
+        <td><%= episode.thumb %></td>
         <td><%= episode.season_id %></td>
-        <td><%= episode.show_id %></td>
-        <td><%= link_to 'Show', show_season_episode_path(@show, @season, episode) %></td>
-        <td><%= link_to 'Edit', edit_show_season_episode_path(@show, @season, episode) %></td>
-        <td><%= link_to 'Destroy', show_season_episode_path(@show, @season, episode), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= episode.air_date %></td>
+        <td><%= episode.guest_stars %></td>
+        <td><%= episode.director %></td>
+        <td><%= episode.writer %></td>
+        <td><%= episode.rating %></td>
+        <td><%= episode.rating_count %></td>
+        <td><%= link_to 'Show', episode_path(episode) %></td>
+        <td><%= link_to 'Destroy', episode_path(episode), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Episode', new_show_season_episode_path %>

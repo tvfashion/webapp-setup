@@ -23,13 +23,8 @@
         <td><%= actor.series_id %></td>
         <td><%= actor.sort_order %></td>
         <td><%= link_to 'Show', actor %></td>
-        <td><%= link_to 'Edit', edit_actor_path(actor) %></td>
         <td><%= link_to 'Destroy', actor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Actor', new_actor_path %>

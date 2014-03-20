@@ -51,6 +51,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'html2haml'
   gem 'quiet_assets'
+  gem "table_print"
 end
 
 # Use ActiveModel has_secure_password

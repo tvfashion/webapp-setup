@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140318120939) do
     t.text     "overview"
     t.text     "thumb"
     t.string   "air_date"
-    t.integer  "guest_stars"
+    t.text  "guest_stars"
     t.string   "director"
     t.string   "writer"
     t.integer  "series_id"

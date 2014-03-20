@@ -10,6 +10,8 @@ Tvshows::Application.routes.draw do
   resources :episodes
   resources :actors
 
+  get 'update_all_shows', to: 'shows#update_shows'
+
   resources :shows do
     resources :actors
     resources :seasons do

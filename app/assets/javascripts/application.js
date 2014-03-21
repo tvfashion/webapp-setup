@@ -16,6 +16,4 @@
 //= require turbolinks
 //= require_tree .
 
-// Loads all Bootstrap javascripts
-//= require bootstrap
 $(function(){ $(document).foundation(); });

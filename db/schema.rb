@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140318120939) do
     t.text     "overview"
     t.text     "thumb"
     t.string   "air_date"
-    t.text  "guest_stars"
+    t.integer  "guest_stars"
     t.string   "director"
     t.string   "writer"
     t.integer  "series_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140318120939) do
     t.integer  "episode_id"
     t.integer  "show_id"
     t.integer  "season_id"
-    t.integer  "actor_id"
+    t.integer  "character_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

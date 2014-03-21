@@ -42,8 +42,6 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.1.1.0)
-      sass (~> 3.2)
     builder (3.1.4)
     cancan (1.6.10)
     coderay (1.1.0)
@@ -65,6 +63,9 @@ GEM
     execjs (2.0.2)
     font-awesome-rails (4.0.3.1)
       railties (>= 3.2, < 5.0)
+    foundation-rails (5.2.1.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     haml (4.1.0.beta.1)
       tilt
     hike (1.2.3)
@@ -194,10 +195,10 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  bootstrap-sass
   cancan
   coffee-rails (~> 4.0.0)
   devise
+  foundation-rails
   html2haml
   jbuilder (~> 1.2)
   jquery-rails

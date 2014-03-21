@@ -3,7 +3,7 @@ class CreateSeasons < ActiveRecord::Migration
     create_table :seasons do |t|
       t.string :name
       t.string :image
-      t.integer :show_id
+      t.integer :series_id
 
       t.timestamps
     end

@@ -61,9 +61,9 @@ ActiveRecord::Schema.define(version: 20140318120939) do
     t.string   "productPic"
     t.string   "productLink"
     t.integer  "episode_id"
-    t.integer  "show_id"
+    t.integer  "series_id"
     t.integer  "season_id"
-    t.integer  "character_id"
+    t.integer  "actor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20140318120939) do
   create_table "seasons", force: true do |t|
     t.string   "name"
     t.string   "image"
-    t.integer  "show_id"
+    t.integer  "series_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20140318120939) do
     t.integer  "imdb_id"
     t.integer  "episodes_count"
     t.integer  "actors_count"
+    t.integer  "seasons_count"
     t.string   "status"
     t.string   "airs_dayofweek"
     t.integer  "rating_count"

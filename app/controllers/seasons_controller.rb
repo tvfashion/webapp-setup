@@ -4,7 +4,7 @@ class SeasonsController < ApplicationController
   # GET /seasons
   # GET /seasons.json
   def index
-    @show = Show.find(params[:show_id])
+    @show = Show.find(params[:series_id])
     @seasons = @show.seasons
   end
 
@@ -15,7 +15,7 @@ class SeasonsController < ApplicationController
 
   # GET /seasons/new
   def new
-    @show = Show.find(params[:show_id])
+    @show = Show.find(params[:series_id])
     @season = @show.seasons.new
   end
 
@@ -26,7 +26,7 @@ class SeasonsController < ApplicationController
   # POST /seasons
   # POST /seasons.json
   def create
-    @show = Show.find(params[:show_id])
+    @show = Show.find(params[:series_id])
     @season = @show.seasons.new(season_params)
 
     respond_to do |format|
@@ -68,12 +68,12 @@ class SeasonsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_season
-      @show = Show.find(params[:show_id])
+      @show = Show.find(params[:series_id])
       @season = @show.seasons.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def season_params
-      params.require(:season).permit(:name, :image, :show_id)
+      params.require(:season).permit(:name, :image, :series_id)
     end
 end

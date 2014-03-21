@@ -4,7 +4,7 @@ class FashionsController < ApplicationController
   # GET /fashions
   # GET /fashions.json
   def index
-    @show = Show.find(params[:show_id])
+    @show = Show.find(params[:series_id])
     @season = @show.seasons.find(params[:season_id])
     @episode = @season.episodes.find(params[:episode_id])
     @fashions = @episode.fashions
@@ -17,7 +17,7 @@ class FashionsController < ApplicationController
 
   # GET /fashions/new
   def new
-    @show = Show.find(params[:show_id])
+    @show = Show.find(params[:series_id])
     @season = @show.seasons.find(params[:season_id])
     @episode = @season.episodes.find(params[:episode_id])
     @fashion = @episode.fashions.new
@@ -30,7 +30,7 @@ class FashionsController < ApplicationController
   # POST /fashions
   # POST /fashions.json
   def create
-    @show = Show.find(params[:show_id])
+    @show = Show.find(params[:series_id])
     @season = @show.seasons.find(params[:season_id])
     @episode = @season.episodes.find(params[:episode_id])
     @fashion = @episode.fashions.new(fashion_params)
@@ -73,7 +73,7 @@ class FashionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fashion
-      @show = Show.find(params[:show_id])
+      @show = Show.find(params[:series_id])
       @season = @show.seasons.find(params[:season_id])
       @episode = @season.episodes.find(params[:episode_id])
       @fashion = @episode.fashions.find(params[:id])
@@ -81,6 +81,6 @@ class FashionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fashion_params
-      params.require(:fashion).permit(:name, :match, :charPic, :productPic, :productLink, :episode_id, :show_id, :season_id, :actor_id)
+      params.require(:fashion).permit(:name, :match, :charPic, :productPic, :productLink, :episode_id, :series_id, :season_id, :actor_id)
     end
 end

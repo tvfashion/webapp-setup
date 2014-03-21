@@ -15,6 +15,7 @@ class RedefineShows < ActiveRecord::Migration
       t.integer  :imdb_id
       t.integer  :episodes_count
       t.integer  :actors_count
+      t.integer  :seasons_count
       t.string   :status
       t.string   :airs_dayofweek
       t.integer  :rating_count

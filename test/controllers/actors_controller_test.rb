@@ -18,7 +18,7 @@ class ActorsControllerTest < ActionController::TestCase
 
   test "should create actor" do
     assert_difference('Actor.count') do
-      post :create, actor: { episode_id: @actor.episode_id, image: @actor.image, name: @actor.name, role: @actor.role, show_id: @actor.show_id }
+      post :create, actor: { episode_id: @actor.episode_id, image: @actor.image, name: @actor.name, role: @actor.role, series_id: @actor.series_id }
     end
 
     assert_redirected_to actor_path(assigns(:actor))
@@ -35,7 +35,7 @@ class ActorsControllerTest < ActionController::TestCase
   end
 
   test "should update actor" do
-    patch :update, id: @actor, actor: { episode_id: @actor.episode_id, image: @actor.image, name: @actor.name, role: @actor.role, show_id: @actor.show_id }
+    patch :update, id: @actor, actor: { episode_id: @actor.episode_id, image: @actor.image, name: @actor.name, role: @actor.role, series_id: @actor.series_id }
     assert_redirected_to actor_path(assigns(:actor))
   end
 

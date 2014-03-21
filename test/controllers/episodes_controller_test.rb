@@ -18,7 +18,7 @@ class EpisodesControllerTest < ActionController::TestCase
 
   test "should create episode" do
     assert_difference('Episode.count') do
-      post :create, episode: { name: @episode.name, number: @episode.number, overview: @episode.overview, season_id: @episode.season_id, show_id: @episode.show_id, thumbnail: @episode.thumbnail }
+      post :create, episode: { name: @episode.name, number: @episode.number, overview: @episode.overview, season_id: @episode.season_id, series_id: @episode.series_id, thumbnail: @episode.thumbnail }
     end
 
     assert_redirected_to episode_path(assigns(:episode))
@@ -35,7 +35,7 @@ class EpisodesControllerTest < ActionController::TestCase
   end
 
   test "should update episode" do
-    patch :update, id: @episode, episode: { name: @episode.name, number: @episode.number, overview: @episode.overview, season_id: @episode.season_id, show_id: @episode.show_id, thumbnail: @episode.thumbnail }
+    patch :update, id: @episode, episode: { name: @episode.name, number: @episode.number, overview: @episode.overview, season_id: @episode.season_id, series_id: @episode.series_id, thumbnail: @episode.thumbnail }
     assert_redirected_to episode_path(assigns(:episode))
   end
 

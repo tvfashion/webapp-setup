@@ -4,7 +4,7 @@ class EpisodesController < ApplicationController
   # GET /episodes
   # GET /episodes.json
   def index
-    # @show = Show.find(params[:show_id])
+    # @show = Show.find(params[:series_id])
     # @season = @show.seasons.find(params[:season_id])
     @episodes = Episode.all
   end
@@ -16,7 +16,7 @@ class EpisodesController < ApplicationController
 
   # GET /episodes/new
   def new
-    # @show = Show.find(params[:show_id])
+    # @show = Show.find(params[:series_id])
     # @season = @show.seasons.find(params[:season_id])
     # @episode = @season.episodes.new
   end
@@ -28,7 +28,7 @@ class EpisodesController < ApplicationController
   # POST /episodes
   # POST /episodes.json
   def create
-    # @show = Show.find(params[:show_id])
+    # @show = Show.find(params[:series_id])
     # @season = @show.seasons.find(params[:season_id])
     # @episode = @season.episodes.new(episode_params)
 
@@ -75,6 +75,6 @@ class EpisodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def episode_params
-      params.require(:episode).permit(:number, :name, :overview, :thumbnail, :season_id, :show_id)
+      params.require(:episode).permit(:number, :name, :overview, :thumbnail, :season_id, :series_id)
     end
 end

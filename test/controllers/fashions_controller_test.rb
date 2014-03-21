@@ -18,7 +18,7 @@ class FashionsControllerTest < ActionController::TestCase
 
   test "should create fashion" do
     assert_difference('Fashion.count') do
-      post :create, fashion: { charPic: @fashion.charPic, actor_id: @fashion.actor_id, episode_id: @fashion.episode_id, match: @fashion.match, name: @fashion.name, productLink: @fashion.productLink, productPic: @fashion.productPic, season_id: @fashion.season_id, show_id: @fashion.show_id }
+      post :create, fashion: { charPic: @fashion.charPic, actor_id: @fashion.actor_id, episode_id: @fashion.episode_id, match: @fashion.match, name: @fashion.name, productLink: @fashion.productLink, productPic: @fashion.productPic, season_id: @fashion.season_id, series_id: @fashion.series_id }
     end
 
     assert_redirected_to fashion_path(assigns(:fashion))
@@ -35,7 +35,7 @@ class FashionsControllerTest < ActionController::TestCase
   end
 
   test "should update fashion" do
-    patch :update, id: @fashion, fashion: { charPic: @fashion.charPic, actor_id: @fashion.actor_id, episode_id: @fashion.episode_id, match: @fashion.match, name: @fashion.name, productLink: @fashion.productLink, productPic: @fashion.productPic, season_id: @fashion.season_id, show_id: @fashion.show_id }
+    patch :update, id: @fashion, fashion: { charPic: @fashion.charPic, actor_id: @fashion.actor_id, episode_id: @fashion.episode_id, match: @fashion.match, name: @fashion.name, productLink: @fashion.productLink, productPic: @fashion.productPic, season_id: @fashion.season_id, series_id: @fashion.series_id }
     assert_redirected_to fashion_path(assigns(:fashion))
   end
 

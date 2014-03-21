@@ -7,7 +7,7 @@ class CreateFashions < ActiveRecord::Migration
       t.string :productPic
       t.string :productLink
       t.integer :episode_id
-      t.integer :show_id
+      t.integer :series_id
       t.integer :season_id
       t.integer :actor_id
 

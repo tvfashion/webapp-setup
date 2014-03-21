@@ -6,7 +6,7 @@ class CreateEpisodes < ActiveRecord::Migration
       t.text :overview
       t.string :thumbnail
       t.integer :season_id
-      t.integer :show_id
+      t.integer :series_id
 
       t.timestamps
     end

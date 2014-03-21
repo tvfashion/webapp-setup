@@ -3,9 +3,9 @@
 one:
   name: MyString
   image: MyString
-  show_id: 1
+  series_id: 1
 
 two:
   name: MyString
   image: MyString
-  show_id: 1
+  series_id: 1

@@ -18,7 +18,7 @@ class SeasonsControllerTest < ActionController::TestCase
 
   test "should create season" do
     assert_difference('Season.count') do
-      post :create, season: { image: @season.image, name: @season.name, show_id: @season.show_id }
+      post :create, season: { image: @season.image, name: @season.name, series_id: @season.series_id }
     end
 
     assert_redirected_to season_path(assigns(:season))
@@ -35,7 +35,7 @@ class SeasonsControllerTest < ActionController::TestCase
   end
 
   test "should update season" do
-    patch :update, id: @season, season: { image: @season.image, name: @season.name, show_id: @season.show_id }
+    patch :update, id: @season, season: { image: @season.image, name: @season.name, series_id: @season.series_id }
     assert_redirected_to season_path(assigns(:season))
   end
 

@@ -48,6 +48,7 @@ class ShowsController < ApplicationController
       imdb_id: series.imdb_id.to_i,
       episodes_count: episodes.length,
       actors_count: actors.length,
+      seasons_count: seasons.length,
       status: series.status,
       airs_dayofweek: series.airs_dayofweek,
       rating_count: series.ratingcount.to_i
@@ -155,6 +156,7 @@ class ShowsController < ApplicationController
         imdb_id: series.imdb_id.to_i,
         episodes_count: episodes.length,
         actors_count: actors.length,
+        season_count: seasons.length,
         status: series.status,
         airs_dayofweek: series.airs_dayofweek,
         rating_count: series.ratingcount.to_i

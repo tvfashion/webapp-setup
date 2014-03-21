@@ -6,7 +6,7 @@ one:
   overview: MyText
   thumbnail: MyString
   season_id: 1
-  show_id: 1
+  series_id: 1
 
 two:
   number: 1
@@ -14,4 +14,4 @@ two:
   overview: MyText
   thumbnail: MyString
   season_id: 1
-  show_id: 1
+  series_id: 1

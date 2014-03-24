@@ -6,7 +6,6 @@ Tvshows::Application.routes.draw do
 
   resources :shows
   resources :fashions
-  resources :seasons
   resources :episodes
   resources :actors
 
@@ -14,13 +13,14 @@ Tvshows::Application.routes.draw do
 
   resources :shows do
     resources :actors
-    resources :seasons do
-      resources :episodes do
+    resources :episodes do
          resources :fashions
-      end
+      
     end
   end
 
+    
+    get '/home' => 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

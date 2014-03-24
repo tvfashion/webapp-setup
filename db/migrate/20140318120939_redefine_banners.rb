@@ -4,10 +4,10 @@ class RedefineBanners < ActiveRecord::Migration
       t.string      :banner_type
       t.string      :banner_type2
       t.string      :season
-      t.string      :path
+      t.string      :image_path
       t.string      :language
-      t.integer     :series_id
-
+	  t.belongs_to	:show
+        
       t.timestamps
     end
   end

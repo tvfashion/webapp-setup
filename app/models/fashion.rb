@@ -2,8 +2,6 @@ class Fashion < ActiveRecord::Base
 
   # associations
   belongs_to :episode
-  belongs_to :show
-  belongs_to :season
   belongs_to :actor
 
   # example validation

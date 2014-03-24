@@ -36,62 +36,61 @@ class ShowsController < ApplicationController
     banners = tvdb.get_banners(series)
     seasons = tvdb.get_seasons(series, "en")
 
-    Show.create( series_id: series.id,
-      name: series.name,
-      overview: series.overview,
-      first_aired: series.first_aired,
-      genres: series.genres.join(", "),
-      network: series.network,
-      rating: series.rating.to_i,
-      runtime: series.runtime,
-      air_time: series.air_time,
-      imdb_id: series.imdb_id.to_i,
-      episodes_count: episodes.length,
-      actors_count: actors.length,
-      seasons_count: seasons.length,
-      status: series.status,
-      airs_dayofweek: series.airs_dayofweek,
-      rating_count: series.ratingcount.to_i
+    Show.create( id: series.id.to_i,
+        name: series.name,
+        overview: series.overview,
+        first_aired: series.first_aired,
+        genres: series.genres.join(", "),
+        network: series.network,
+        rating: series.rating.to_i,
+        runtime: series.runtime,
+        air_time: series.air_time,
+        imdb_id: series.imdb_id,
+        episodes_count: episodes.length,
+        actors_count: actors.length,
+        seasons_count: seasons.length,
+        status: series.status,
+        airs_dayofweek: series.airs_dayofweek,
+        rating_count: series.ratingcount.to_i
     ).save
 
     actors.each do |actor|
       Actor.create(
-        actor_id: actor.id,
-        name: actor.name,
-        role: actor.role,
-        image: actor.image,
-        series_id: series.id,
-        sort_order: actor.sortorder
+          id: actor.id.to_i,
+          name: actor.name,
+          role: actor.role,
+          image: actor.image,
+          show_id: series.id.to_i,
+          sort_order: actor.sortorder.to_i
       ).save
     end
 
     episodes.each do |episode|
       Episode.create(
-        episode_id: episode.id.to_i,
-        season_number: episode.season_number.to_i,
-        number: episode.number.to_i,
-        name: episode.name,
-        overview: episode.overview,
-        air_date: episode.air_date,
-        thumb: episode.thumb,
-        guest_stars: episode.guest_stars.join(", "),
-        director: episode.director,
-        writer: episode.writer,
-        series_id: series.id.to_i,
-        season_id: episode.season_id.to_i,
-        rating: episode.rating.to_i,
-        rating_count: episode.ratingcount.to_i
+        id: episode.id.to_i,
+          season_number: episode.season_number.to_i,
+          number: episode.number.to_i,
+          name: episode.name,
+          overview: episode.overview,
+          air_date: episode.air_date.to_s,
+          thumb: episode.thumb,
+          guest_stars: episode.guest_stars.join(", "),
+          director: episode.director,
+          writer: episode.writer,
+          show_id: series.id.to_i,
+          rating: episode.rating.to_i,
+          rating_count: episode.ratingcount.to_i
       ).save
     end
 
     banners.each do |banner|
       Banner.create(
         banner_type: banner.banner_type,
-        banner_type2: banner.banner_type2,
-        season: banner.season,
-        path: banner.path,
-        language: banner.language,
-        series_id: series.id
+          banner_type2: banner.banner_type2,
+          season: banner.season,
+          image_path: banner.path,
+          language: banner.language,
+          show_id: series.id.to_i
       ).save
     end
 
@@ -144,7 +143,7 @@ class ShowsController < ApplicationController
       banners = tvdb.get_banners(series)
       seasons = tvdb.get_seasons(series, "en")
 
-      Show.find_or_create_by( series_id: series.id.to_i,
+      Show.find_or_create_by( id: series.id.to_i,
         name: series.name,
         overview: series.overview,
         first_aired: series.first_aired,
@@ -153,10 +152,10 @@ class ShowsController < ApplicationController
         rating: series.rating.to_i,
         runtime: series.runtime,
         air_time: series.air_time,
-        imdb_id: series.imdb_id.to_i,
+        imdb_id: series.imdb_id,
         episodes_count: episodes.length,
         actors_count: actors.length,
-        season_count: seasons.length,
+        seasons_count: seasons.length,
         status: series.status,
         airs_dayofweek: series.airs_dayofweek,
         rating_count: series.ratingcount.to_i
@@ -164,18 +163,18 @@ class ShowsController < ApplicationController
 
       actors.each do |actor|
         Actor.find_or_create_by(
-          actor_id: actor.id.to_i,
+          id: actor.id.to_i,
           name: actor.name,
           role: actor.role,
           image: actor.image,
-          series_id: series.id.to_i,
-          sort_order: actor.sortorder
+          show_id: series.id.to_i,
+          sort_order: actor.sortorder.to_i
         )
       end
 
       episodes.each do |episode|
         Episode.find_or_create_by(
-          episode_id: episode.id.to_i,
+          id: episode.id.to_i,
           season_number: episode.season_number.to_i,
           number: episode.number.to_i,
           name: episode.name,
@@ -185,8 +184,7 @@ class ShowsController < ApplicationController
           guest_stars: episode.guest_stars.join(", "),
           director: episode.director,
           writer: episode.writer,
-          series_id: series.id.to_i,
-          season_id: episode.season_id.to_i,
+          show_id: series.id.to_i,
           rating: episode.rating.to_i,
           rating_count: episode.ratingcount.to_i
         )
@@ -197,9 +195,9 @@ class ShowsController < ApplicationController
           banner_type: banner.banner_type,
           banner_type2: banner.banner_type2,
           season: banner.season,
-          path: banner.path,
+          image_path: banner.path,
           language: banner.language,
-          series_id: series.id.to_i
+          show_id: series.id.to_i
         )
       end
 

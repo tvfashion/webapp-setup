@@ -1,27 +1,21 @@
-<h1>Listing shows</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-
-  <tbody>
+     <div class="row">
+        <div class="large-12 columns">
+            <h1>Shows</h1>
+            <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">
+                
     <% @shows.each do |show| %>
-      <tr>
-        <td><%= show.name %></td>
-        <td><%= link_to 'Show', show %></td>
-        <!-- Example of access controll -->
-        <% if can? :destroy, Show %>
-          <td><%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+            <li>
+                <% poster = show.banners.where("banner_type = 'poster'").first %>
+                <%=  %>
+                <%= link_to(image_tag("http://thetvdb.com/banners/" + poster.image_path), show) %>
+            </li>
+      <% end %>
+            </ul>
+        </div>
+    </div>
 <br>
+
+
 
 <%= link_to 'New Show', new_show_path %>
 

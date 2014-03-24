@@ -2,7 +2,6 @@ class Actor < ActiveRecord::Base
 
   # associations
   belongs_to :show
-  belongs_to :episode
   has_many :fashions
 
   # example validation

@@ -1,11 +1,26 @@
 <p id="notice"><%= notice %></p>
-
+<!-- Top Fan Art -->
 <div class="row">
   <div class="large-12 columns">
     <!-- Desktop Slider -->
 
     <div class="hide-for-small">
-      <div id="featured"><img alt="slide image" src="http://placehold.it/1000x400&amp;text=Slide%20Image"></div>
+        <div id="featured">
+            <div class="fanart">
+                <% fanart = @show.banners.where("banner_type = 'fanart'").first %>
+                <%= image_tag("http://thetvdb.com/banners/" + fanart.image_path) %>
+                <div class="fanart-overlay">
+                    <% poster = @show.banners.where("banner_type = 'poster'").first %>
+                    <%= image_tag("http://thetvdb.com/banners/" + poster.image_path) %>
+                    <div class="fanart-description">
+                        <div class="fanart-content">
+                            <h1><%= @show.name %></h1>
+                            <p><%= @show.overview %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div><!-- End Desktop Slider -->
     <!-- Mobile Header -->
 
@@ -15,75 +30,57 @@
     </div><!-- End Mobile Header -->
   </div>
 </div><br>
+<!-- END Top Fan Art -->
 
-
-
+<!-- Seasons -->
 <div class="row">
   <div class="large-12 columns">
+      <h1>Seasons</h1>
     <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">
-        <% @
+<!-- Use season count to make a loop to pull each season cover  -->
+        <%  $i = 0
+            while $i < @show.seasons_count do %>
+        
+        <%     $i +=1   %> 
+        <% cover = @show.banners.where("season = ?", $i).take(1) %> 
+        <% if cover.first != nil %>
+        <li>
+        <%= image_tag("http://thetvdb.com/banners/_cache/" + cover.first.image_path) %>
+        </li>
+        <% end %>
+        <% end %>
     </ul>
   </div>
 </div><br>
+<!-- END Seasons -->
 
+<!-- Top Actors -->
+<div class="row">
+  <div class="large-12 columns">
+      <h1>Top Actors</h1>
+    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+        <% sorted = @show.actors.sort! { |a,b| a.sort_order <=> b.sort_order } %> <!-- sort actors by sort order -->
+        <% sorted.each do |act| %>
+        <% if act.image != nil %> <!-- Checks to see if they have image -->
+        <li> 
+       <%= link_to( image_tag("http://thetvdb.com/banners/" + act.image), show_actor_path(@show.id, act)) %> <!-- Display actor image and link to their page -->
+        </li>
+        <% end %>
+        <% end %>
+<!--        for each actor matching series_id with thumb ( show thumb and link to corresponding actor)       -->
+        
+    </ul>
+  </div>
+</div><br>
+<!-- END Top Actors -->
 
-
-<p>
-  <strong>Name:</strong>
-  <%= @show.name %>
-</p>
-
-<p>
-  <strong>Banner:</strong>
-  <%=  %>
-</p>
-
-<p>
-  <strong>Overview:</strong>
-  <%= @show.overview %>
-</p>
-
-<p>
-  <strong>Network:</strong>
-  <%= @show.network %>
-</p>
-
-<p>
-  <strong>Airsdayofweek:</strong>
-  <%= @show.airs_dayofweek %>
-</p>
-
-
-<p>
-  <strong>Genres:</strong>
-  <%= @show.genres %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @show.rating %>
-</p>
-
-<p>
-  <strong>Runtime:</strong>
-  <%= @show.runtime %>
-</p>
-
-<p>
-  <strong>episodes:</strong>
-  <%= @show.episodes_count %>
-</p>
-
-<p>
-  <strong>actors:</strong>
-  <%= @show.actors_count %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @show.status %>
-</p>
-
-
-<%= link_to 'Edit', edit_show_path(@show) %> |
-<%= link_to 'Back', shows_path %>
+<!-- Top Fashion -->
+<div class="row">
+  <div class="large-12 columns">
+      <h1>Top Fashion</h1>
+    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+<!--        for each fashion matching series_id ( show thumb and link to corresponding fashion       -->
+    </ul>
+  </div>
+</div><br>
+<!-- END Top Fashion -->

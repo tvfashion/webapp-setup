@@ -5,7 +5,6 @@ class FashionsController < ApplicationController
   # GET /fashions.json
   def index
     @show = Show.find(params[:series_id])
-    @season = @show.seasons.find(params[:season_id])
     @episode = @season.episodes.find(params[:episode_id])
     @fashions = @episode.fashions
   end

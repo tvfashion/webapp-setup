@@ -1,1 +1,77 @@
-<h1>Home</h1>
+
+    <!-- Content Slider -->
+ 
+      <div class="row">
+        <div class="large-12 hide-for-small">
+ 
+          <div id="featured" data-orbit data-options="slide_number: false;
+                                                      timer: false;">
+              <img src="http://placehold.it/1200x500&text=Slide Image 1" alt="slide image">
+              <img src="http://placehold.it/1200x500&text=Slide Image 2" alt="slide image">
+              <img src="http://placehold.it/1200x500&text=Slide Image 3" alt="slide image">
+            </div>
+ 
+      </div>
+    </div>
+ 
+    <!-- End Content Slider -->
+ 
+    <!-- Mobile Header -->
+ 
+      <div class="row">
+        <div class="large-12 columns show-for-small">
+ 
+          <img src="http://placehold.it/1200x700&text=Mobile Header">
+ 
+        </div>
+      </div><br>
+ 
+    <!-- End Mobile Header -->
+
+
+      <div class="row">
+        <div class="large-12">
+            <h2>Most Popular</h2>
+            <dl class="tabs" data-tab>
+              <dd class="active"><a href="#TVShows">TV Shows</a></dd>
+              <dd><a href="#Actors">Actors</a></dd>
+              <dd><a href="#Fashion">Fashion</a></dd>
+            </dl>
+            <div class="tabs-content">
+              <div class="content active" id="TVShows">
+                <div class="row">
+                  <div class="large-12 columns">
+                    <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-4">
+                        <% sorted = @shows.order("RAND()").first(4) %>
+                        <% sorted.each do |show| %>
+                        <% poster = show.banners.where("banner_type = 'poster'").first %>
+                        <li> 
+                       <%= link_to(image_tag("http://thetvdb.com/banners/" + poster.image_path), show_path(show)) %> <!-- Display actor image and link to their page -->
+                        </li>
+                        <% end %>                
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="content" id="Actors">
+                <div class="row">
+                  <div class="large-12 columns">
+                    <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-4">
+                        <% sorted = @actors.order("RAND()").first(4) %>
+                        <% sorted.each do |act| %>
+                        <% if act.image != nil %> <!-- Checks to see if they have image -->
+                        <li> 
+                       <%= link_to( image_tag("http://thetvdb.com/banners/" + act.image), actor_path(act)) %> <!-- Display actor image and link to their page -->
+                        </li>
+                        <% end %>
+                        <% end %>  
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="content" id="Fashion">
+                <h1>Sorry for the problems we are trying to add this now</h1>
+              </div>
+            </div>
+          </div>
+        </div>

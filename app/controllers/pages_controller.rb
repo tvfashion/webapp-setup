@@ -1,6 +1,9 @@
-class PagesController < ActionController::Base
-  def home
-    # put any code here that you need 
-    # (although for a static view you probably won't have any)
+class PagesController < ActionController::Base    
+    def home
+        
+        @shows = Show.all
+        @actors = Actor.all
+       # @fashions = Fanshion.all
+          render layout: "application" 
   end
 end

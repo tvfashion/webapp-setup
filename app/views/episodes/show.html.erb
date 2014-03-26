@@ -1,27 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Number:</strong>
-  <%= @episode.number %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @episode.name %>
-</p>
+<!-- Top Fan Art -->
+<div class="row">
+  <div class="large-12 columns">
+    <!-- Desktop Slider -->
 
-<p>
-  <strong>Overview:</strong>
-  <%= @episode.overview %>
-</p>
+    <div class="hide-for-small">
+        <div id="featured">
+            <div class="fanart">
+                <% fanart = @episode.show.banners.where("banner_type = 'fanart'").first %>
+                <%= image_tag("http://thetvdb.com/banners/" + fanart.image_path) %>
+                <div class="fanart-overlay">
+                    <%= image_tag(@episode.thumb) %>
+                    <div class="fanart-description">
+                        <div class="fanart-content-episode">
+                            <h1><%= @episode.name %></h1>
+                            <p><%= @episode.overview %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- End Desktop Slider -->
+    <!-- Mobile Header -->
 
-<p>
-  <strong>Thumbnail:</strong>
-  <%= @episode.thumb %>
-</p>
+    <div class="row">
+      <div class="small-12 show-for-small"><br>
+      <img src="http://placehold.it/1000x600&amp;text=For%20Small%20Screens"></div>
+    </div><!-- End Mobile Header -->
+  </div>
+</div><br>
+<!-- END Top Fan Art -->
 
-<p>
-
-
-<%= link_to 'Edit', edit_episode_path(@episode) %> |
-<%= link_to 'Back', episodes_path %>
+<div class="row">
+    <div class="large-12 columns">
+      <h1>Fashions coming soon</h1>
+    </div>
+</div>

@@ -23,7 +23,7 @@ Tvshows::Application.routes.draw do
     
     get '/home' => 'pages#home'
     
-    get '/shows/:season_show/:season_num' => 'seasons#show'
+    get '/shows/:season_show/:season_num' => 'seasons#show', as: :season
 
 
   # The priority is based upon order of creation: first created -> highest priority.

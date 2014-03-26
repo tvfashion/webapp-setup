@@ -10,6 +10,7 @@ class ActorsController < ApplicationController
   # GET /actors/1
   # GET /actors/1.json
   def show
+      @show = Show.find_by_id(params[:show_id])
   end
 
   # GET /actors/new
@@ -25,7 +26,6 @@ class ActorsController < ApplicationController
   # POST /actors.json
   def create
     @actor = Actor.new(actor_params)
-
     respond_to do |format|
       if @actor.save
         format.html { redirect_to @actor, notice: 'Actor was successfully created.' }

@@ -28,10 +28,12 @@
                 <!-- Right Nav Section -->
                 <ul class="right">
                   <li class="has-dropdown">
-                    <a href="#">Login/Account</a>
+                    <%= link_to 'Login/Account', new_user_session_path %>
                     <ul class="dropdown">
                         <li><a href="#">Settings</a></li>
                         <li><a href="#">Favs</a></li>
+                        <li><%= link_to 'Account', edit_user_registration_path %></li>
+                        <li><%= link_to 'Log Out', destroy_user_session_path %></li>
                     </ul>
                   </li>
                     <li class="has-form">
@@ -63,7 +65,8 @@
           <!-- END Nav Bar -->
           
           <!-- Breadcrumbs -->
-            <div class="contain-to-grid large-12 hide-for-small">
+          <div class="row">
+            <div class="large-12 hide-for-small">
                 <nav class="breadcrumbs">
                     <a href="#">Home</a>
                     <a href="#">TV Show Name</a>
@@ -72,7 +75,7 @@
                     <a class="current" href="#">Fashion Name</a>
                 </nav>
             </div>
-           
+           </div>
           <!-- END Breadcrumbs -->
           
     <%= yield %>

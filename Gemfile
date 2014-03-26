@@ -68,3 +68,5 @@ end
 gem 'foundation-rails'
 
 gem 'rails_admin'
+
+gem 'cloudinary'

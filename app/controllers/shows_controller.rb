@@ -143,7 +143,7 @@ class ShowsController < ApplicationController
       banners = tvdb.get_banners(series)
       seasons = tvdb.get_seasons(series, "en")
 
-      Show.find_or_create_by( id: series.id.to_i,
+      Show.find_or_initialize_by( id: series.id.to_i,
         name: series.name,
         overview: series.overview,
         first_aired: series.first_aired,
@@ -173,21 +173,26 @@ class ShowsController < ApplicationController
       end
 
       episodes.each do |episode|
-        Episode.find_or_create_by(
-          id: episode.id.to_i,
-          season_number: episode.season_number.to_i,
-          number: episode.number.to_i,
-          name: episode.name,
-          overview: episode.overview,
-          air_date: episode.air_date.to_s,
-          thumb: episode.thumb,
-          guest_stars: episode.guest_stars.join(", "),
-          director: episode.director,
-          writer: episode.writer,
-          show_id: series.id.to_i,
-          rating: episode.rating.to_i,
-          rating_count: episode.ratingcount.to_i
-        )
+            @epi_tvdb = {
+                        id: episode.id.to_i,
+                        season_number: episode.season_number.to_i,
+                        number: episode.number.to_i,
+                        name: episode.name,
+                        overview: episode.overview,
+                        air_date: episode.air_date.to_s,
+                        thumb: episode.thumb,
+                        guest_stars: episode.guest_stars.join(", "),
+                        director: episode.director,
+                        writer: episode.writer,
+                        show_id: series.id.to_i,
+                        rating: episode.rating.to_i,
+                        rating_count: episode.ratingcount.to_i
+                        }        
+            if Episode.where(:id => episode.id.to_i).blank?
+                Episode.create(@epi_tvdb)
+            elsif Episode.where(episode.id.to_i) != @epi_tvdb
+                Episode.find(episode.id.to_i).update(@epi_tvdb)
+            end
       end
 
       banners.each do |banner|

@@ -45,7 +45,7 @@
         <% cover = @show.banners.where("season = ?", $i).take(1) %> 
         <% if cover.first != nil %>
         <li>
-        <%= image_tag("http://thetvdb.com/banners/_cache/" + cover.first.image_path) %>
+        <%= link_to( image_tag("http://thetvdb.com/banners/_cache/" + cover.first.image_path), season_path(@show.id, $i)) %>
         </li>
         <% end %>
         <% end %>

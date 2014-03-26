@@ -1,21 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @actor.image %>
-</p>
+<!-- Top Fan Art -->
+<div class="row">
+  <div class="large-12 columns">
+    <!-- Desktop Slider -->
 
-<p>
-  <strong>Name:</strong>
-  <%= @actor.name %>
-</p>
+    <div class="hide-for-small">
+        <div id="featured">
+            <div class="fanart">
+                <% fanart = @show.banners.where("banner_type = 'fanart'").first %>
+                <%= image_tag("http://thetvdb.com/banners/" + fanart.image_path) %>
+                <div class="fanart-overlay">
+                    <%= image_tag("http://thetvdb.com/banners/" + @actor.image) %>
+                    <div class="fanart-description">
+                        <div class="fanart-content">
+                            <h1><%= @actor.role %></h1>
+                            <h2>Played By: <%= @actor.name %></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- End Desktop Slider -->
+    <!-- Mobile Header -->
 
-<p>
-  <strong>Role:</strong>
-  <%= @actor.role %>
-</p>
+    <div class="row">
+      <div class="small-12 show-for-small"><br>
+      <img src="http://placehold.it/1000x600&amp;text=For%20Small%20Screens"></div>
+    </div><!-- End Mobile Header -->
+  </div>
+</div><br>
+<!-- END Top Fan Art -->
 
 
+<!-- Top Fashion -->
+<div class="row">
+  <div class="large-12 columns">
+      <h1>Top Fashion</h1>
+    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+<!--        for each fashion matching series_id ( show thumb and link to corresponding fashion       -->
+    </ul>
+  </div>
+</div><br>
+<!-- END Top Fashion -->
 
-<%= link_to 'Edit', edit_actor_path(@actor) %> |
-<%= link_to 'Back', actors_path %>

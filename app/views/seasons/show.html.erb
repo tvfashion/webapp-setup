@@ -1,2 +1,38 @@
 <h1>Seasons#show</h1>
 <p>Find me in app/views/seasons/show.html.erb</p>
+
+<h1><%= @season_number %></h1>
+
+
+<!-- Top Fan Art -->
+<div class="row">
+  <div class="large-12 columns">
+    <!-- Desktop Slider -->
+
+    <div class="hide-for-small">
+        <div id="featured">
+            <div class="fanart">
+                <% fanart = @season_show.banners.where("banner_type = 'fanart'").first %>
+                <%= image_tag("http://thetvdb.com/banners/" + fanart.image_path) %>
+                <div class="fanart-overlay">
+                    <% poster = @season_show.banners.where("banner_type = 'poster'").first %>
+                    <%= image_tag("http://thetvdb.com/banners/" + poster.image_path) %>
+                    <div class="fanart-description">
+                        <div class="fanart-content">
+                            <h1><%= @season_show.name %></h1>
+                            <p><%= @season_show.overview %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- End Desktop Slider -->
+    <!-- Mobile Header -->
+
+    <div class="row">
+      <div class="small-12 show-for-small"><br>
+      <img src="http://placehold.it/1000x600&amp;text=For%20Small%20Screens"></div>
+    </div><!-- End Mobile Header -->
+  </div>
+</div><br>
+<!-- END Top Fan Art -->

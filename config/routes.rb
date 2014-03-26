@@ -22,6 +22,10 @@ Tvshows::Application.routes.draw do
 
     
     get '/home' => 'pages#home'
+    
+    get '/shows/:season_show/:season_num' => 'seasons#show'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

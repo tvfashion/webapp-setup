@@ -1,5 +1,6 @@
 Tvshows::Application.routes.draw do
 
+  get "seasons/show"
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users
   root 'shows#index'

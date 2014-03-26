@@ -37,7 +37,7 @@
                     <li class="has-form">
                       <div class="row collapse">
                         <div class="large-8 small-9 columns">
-                          <input type="text" placeholder="Find Stuff">
+                          <input type="text" placeholder="Search">
                         </div>
                         <div class="large-4 small-3 columns">
                           <a href="#" class="small button expand">Search</a>
@@ -63,12 +63,16 @@
           <!-- END Nav Bar -->
           
           <!-- Breadcrumbs -->
-        <nav class="breadcrumbs">
-          <a href="#">Home</a>
-          <a href="#">Features</a>
-          <a class="unavailable" href="#">Gene Splicing</a>
-          <a class="current" href="#">Cloning</a>
-        </nav>
+            <div class="contain-to-grid large-12 hide-for-small">
+                <nav class="breadcrumbs">
+                    <a href="#">Home</a>
+                    <a href="#">TV Show Name</a>
+                    <a class="unavailable" href="#">Season #</a>
+                    <a class="current" href="#">Episode #</a>
+                    <a class="current" href="#">Fashion Name</a>
+                </nav>
+            </div>
+           
           <!-- END Breadcrumbs -->
           
     <%= yield %>

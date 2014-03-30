@@ -63,7 +63,7 @@
         <% sorted.each do |act| %>
         <% if act.image != nil %> <!-- Checks to see if they have image -->
         <li> 
-       <%= link_to( image_tag("http://thetvdb.com/banners/" + act.image), show_actor_path(@show.id, act)) %> <!-- Display actor image and link to their page -->
+       <%= link_to( image_tag(act.image), show_actor_path(@show.id, act)) %> <!-- Display actor image and link to their page -->
         </li>
         <% end %>
         <% end %>

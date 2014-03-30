@@ -161,15 +161,24 @@ class ShowsController < ApplicationController
         rating_count: series.ratingcount.to_i
       )
 
-      actors.each do |actor|
-        Actor.find_or_create_by(
-          id: actor.id.to_i,
-          name: actor.name,
-          role: actor.role,
-          image: actor.image,
-          show_id: series.id.to_i,
-          sort_order: actor.sortorder.to_i
-        )
+	 actors.each do |actor|  
+		@act_tvdb = {
+			id: actor.id.to_i,
+			name: actor.name,
+			role: actor.role,
+			image: actor.image,
+			show_id: series.id.to_i,
+			sort_order: actor.sortorder.to_i
+			}
+		if !Actor.find(actor.id.to_i)
+                Actor.create(@act_tvdb)
+            elsif Actor.find(actor.id.to_i) != @act_tvdb
+                Actor.find(actor.id.to_i).update(@act_tvdb)
+            end
+			 if actor.image.present?
+                @img = Cloudinary::Uploader.upload("http://thetvdb.com/banners/" + actor.image, :public_id => 'actors/' + actor.id, :unique_filename => false)
+                Actor.find(actor.id.to_i).update(image: @img["url"]) 
+            end
       end
 
       episodes.each do |episode|
@@ -193,20 +202,23 @@ class ShowsController < ApplicationController
             elsif Episode.where(episode.id.to_i) != @epi_tvdb
                 Episode.find(episode.id.to_i).update(@epi_tvdb)
             end
+            if episode.thumb.present?
+                @img = Cloudinary::Uploader.upload(episode.thumb, :public_id => 'episodes/' + series.id + '/' + episode.id, :unique_filename => false)
+                Episode.find(episode.id.to_i).update(thumb: @img["url"]) 
+            end
       end
 
       banners.each do |banner|
+          @img = Cloudinary::Uploader.upload("http://thetvdb.com/banners/" + banner.path, :public_id => banner.path.slice(0..-5), :unique_filename => false)
         Banner.find_or_create_by(
           banner_type: banner.banner_type,
           banner_type2: banner.banner_type2,
           season: banner.season,
-          image_path: banner.path,
+          image_path: @img["url"],
           language: banner.language,
           show_id: series.id.to_i
         )
       end
-
-
     end
 
 

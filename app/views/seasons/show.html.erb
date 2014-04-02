@@ -41,10 +41,11 @@
         <% if epi.thumb %> <!-- Checks to see if they have image -->
         <li> 
        <%= link_to( image_tag(epi.thumb), episode_path(epi)) %> <!-- Display actor image and link to their page -->
+            <p class="episodeInfo"><%= epi.season_number.to_s + " X " + epi.number.to_s %></p>
         </li>
         <% end %>
         <% end %>
-<!--        for each actor matching series_id with thumb ( show thumb and link to corresponding actor)       -->
+
         
     </ul>
   </div>

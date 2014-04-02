@@ -11,45 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326090254) do
+ActiveRecord::Schema.define(version: 20140318120939) do
 
   create_table "actors", force: true do |t|
-    t.integer  "actor_id"
     t.string   "name"
     t.string   "role"
     t.string   "image"
-    t.integer  "series_id"
+    t.integer  "show_id"
     t.string   "sort_order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "actors", ["actor_id"], name: "index_actors_on_actor_id", using: :btree
-
   create_table "banners", force: true do |t|
     t.string   "banner_type"
     t.string   "banner_type2"
     t.string   "season"
-    t.string   "path"
+    t.string   "image_path"
     t.string   "language"
-    t.integer  "series_id"
+    t.integer  "show_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "episodes", force: true do |t|
-    t.integer  "episode_id"
     t.integer  "season_number"
     t.integer  "number"
     t.string   "name"
     t.text     "overview"
-    t.text     "thumb"
+    t.string   "thumb"
     t.string   "air_date"
-    t.text     "guest_stars"
+    t.string   "guest_stars"
     t.string   "director"
     t.string   "writer"
-    t.integer  "series_id"
-    t.integer  "season_id"
+    t.integer  "show_id"
     t.integer  "rating"
     t.integer  "rating_count"
     t.datetime "created_at"
@@ -63,8 +58,6 @@ ActiveRecord::Schema.define(version: 20140326090254) do
     t.string   "productPic"
     t.string   "productLink"
     t.integer  "episode_id"
-    t.integer  "show_id"
-    t.integer  "season_id"
     t.integer  "actor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -81,16 +74,7 @@ ActiveRecord::Schema.define(version: 20140326090254) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
-  create_table "seasons", force: true do |t|
-    t.string   "name"
-    t.string   "image"
-    t.integer  "show_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "shows", force: true do |t|
-    t.integer  "series_id"
     t.string   "name"
     t.text     "overview"
     t.string   "first_aired"
@@ -99,9 +83,10 @@ ActiveRecord::Schema.define(version: 20140326090254) do
     t.integer  "rating"
     t.string   "runtime"
     t.string   "air_time"
-    t.integer  "imdb_id"
+    t.string   "imdb_id"
     t.integer  "episodes_count"
     t.integer  "actors_count"
+    t.integer  "seasons_count"
     t.string   "status"
     t.string   "airs_dayofweek"
     t.integer  "rating_count"

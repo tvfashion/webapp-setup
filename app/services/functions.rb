@@ -38,6 +38,8 @@ class Functions
     actors.each do |actor|
       if actor.image.present?
         @img = Cloudinary::Uploader.upload("http://thetvdb.com/banners/" + actor.image, :public_id => 'actors/' + actor.id, :unique_filename => false)
+      else
+        @img = Cloudinary::Uploader.upload("http://placehold.it/300x450", :public_id => 'actors/placeholder' , :unique_filename => false)  
       end
       @act_tvdb = {
         id: actor.id.to_i,
@@ -58,6 +60,8 @@ class Functions
     episodes.each do |episode|
       if episode.thumb.present?
         @img = Cloudinary::Uploader.upload(episode.thumb, :public_id => 'episodes/' + series.id + '/' + episode.id, :unique_filename => false)
+      else
+        @img = Cloudinary::Uploader.upload("http://placehold.it/400x225", :public_id => 'episodes/placeholder' , :unique_filename => false)  
       end
       @epi_tvdb = {
         id: episode.id.to_i,

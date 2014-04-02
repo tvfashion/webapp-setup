@@ -46,7 +46,7 @@
                         <% sorted.each do |show| %>
                         <% poster = show.banners.where("banner_type = 'poster'").first %>
                         <li> 
-                       <%= link_to(image_tag("http://thetvdb.com/banners/" + poster.image_path), show_path(show)) %> <!-- Display actor image and link to their page -->
+                       <%= link_to(image_tag(poster.image_path), show_path(show)) %> <!-- Display actor image and link to their page -->
                         </li>
                         <% end %>                
                     </ul>
@@ -61,7 +61,7 @@
                         <% sorted.each do |act| %>
                         <% if act.image != nil %> <!-- Checks to see if they have image -->
                         <li> 
-                       <%= link_to( image_tag("http://thetvdb.com/banners/" + act.image), actor_path(act)) %> <!-- Display actor image and link to their page -->
+                       <%= link_to( image_tag(act.image), actor_path(act)) %> <!-- Display actor image and link to their page -->
                         </li>
                         <% end %>
                         <% end %>  

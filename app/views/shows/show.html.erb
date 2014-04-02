@@ -8,10 +8,10 @@
         <div id="featured">
             <div class="fanart">
                 <% fanart = @show.banners.where("banner_type = 'fanart'").first %>
-                <%= image_tag("http://thetvdb.com/banners/" + fanart.image_path) %>
+                <%= image_tag(fanart.image_path) %>
                 <div class="fanart-overlay">
                     <% poster = @show.banners.where("banner_type = 'poster'").first %>
-                    <%= image_tag("http://thetvdb.com/banners/" + poster.image_path) %>
+                    <%= image_tag(poster.image_path) %>
                     <div class="fanart-description">
                         <div class="fanart-content">
                             <h1><%= @show.name %></h1>
@@ -45,7 +45,7 @@
         <% cover = @show.banners.where("season = ?", $i).take(1) %> 
         <% if cover.first != nil %>
         <li>
-        <%= link_to( image_tag("http://thetvdb.com/banners/_cache/" + cover.first.image_path), season_path(@show.id, $i)) %>
+        <%= link_to( image_tag(cover.first.image_path), season_path(@show.id, $i)) %>
         </li>
         <% end %>
         <% end %>

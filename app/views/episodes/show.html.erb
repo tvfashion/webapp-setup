@@ -10,7 +10,7 @@
         <div id="featured">
             <div class="fanart">
                 <% fanart = @episode.show.banners.where("banner_type = 'fanart'").first %>
-                <%= image_tag("http://thetvdb.com/banners/" + fanart.image_path) %>
+                <%= image_tag(fanart.image_path) %>
                 <div class="fanart-overlay">
                     <%= image_tag(@episode.thumb) %>
                     <div class="fanart-description">

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Episode:</strong>
+  <%= @outfit.episode %>
+</p>
+
+<p>
+  <strong>Actor:</strong>
+  <%= @outfit.actor %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @outfit.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @outfit.image %>
+</p>
+
+<%= link_to 'Edit', edit_outfit_path(@outfit) %> |
+<%= link_to 'Back', outfits_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  episode_id: 
+  actor_id: 
+  name: MyString
+  image: MyString
+
+two:
+  episode_id: 
+  actor_id: 
+  name: MyString
+  image: MyString

@@ -1,0 +1,33 @@
+<h1>Listing outfits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Episode</th>
+      <th>Actor</th>
+      <th>Name</th>
+      <th>Image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @outfits.each do |outfit| %>
+      <tr>
+        <td><%= outfit.episode %></td>
+        <td><%= outfit.actor %></td>
+        <td><%= outfit.name %></td>
+        <td><%= outfit.image %></td>
+        <td><%= link_to 'Show', outfit %></td>
+        <td><%= link_to 'Edit', edit_outfit_path(outfit) %></td>
+        <td><%= link_to 'Destroy', outfit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Outfit', new_outfit_path %>

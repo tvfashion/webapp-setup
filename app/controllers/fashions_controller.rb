@@ -16,10 +16,11 @@ class FashionsController < ApplicationController
 
   # GET /fashions/new
   def new
-    @show = Show.find(params[:series_id])
-    @season = @show.seasons.find(params[:season_id])
-    @episode = @season.episodes.find(params[:episode_id])
-    @fashion = @episode.fashions.new
+    #@show = Show.find(params[:series_id])
+    #@season = @show.seasons.find(params[:season_id])
+    #@episode = @season.episodes.find(params[:episode_id])
+    #@fashion = @episode.fashions.new
+     
   end
 
   # GET /fashions/1/edit

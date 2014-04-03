@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318120939) do
+ActiveRecord::Schema.define(version: 20140403125737) do
 
   create_table "actors", force: true do |t|
     t.string   "name"
@@ -52,16 +52,25 @@ ActiveRecord::Schema.define(version: 20140318120939) do
   end
 
   create_table "fashions", force: true do |t|
-    t.string   "name"
     t.boolean  "match"
-    t.string   "charPic"
-    t.string   "productPic"
-    t.string   "productLink"
-    t.integer  "episode_id"
-    t.integer  "actor_id"
+    t.string   "ad_image"
+    t.string   "ad_url"
+    t.integer  "outfit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "outfits", force: true do |t|
+    t.integer  "episode_id"
+    t.integer  "actor_id"
+    t.string   "name"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "outfits", ["actor_id"], name: "index_outfits_on_actor_id", using: :btree
+  add_index "outfits", ["episode_id"], name: "index_outfits_on_episode_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

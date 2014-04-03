@@ -2,7 +2,7 @@ class Episode < ActiveRecord::Base
 
   # associations
   belongs_to :show
-  has_many :fashions
+  has_many :outfits
   has_many :actors, through: :show
 
   # example validation

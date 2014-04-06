@@ -9,6 +9,7 @@ Tvshows::Application.routes.draw do
 
   resources :shows do
     get :get_episodes, on: :collection
+    get :get_actors, on: :collection
   end
   resources :fashions
   resources :episodes

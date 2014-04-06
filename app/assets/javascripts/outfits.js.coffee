@@ -4,10 +4,18 @@
 
 $(document).on "change","#outfit_show", ->
 	show_data = {show_id : $('#outfit_show').val()}
-	console.log show_data
 	$.get "/shows/get_episodes.json", show_data , (data) ->
 		$('#episodes').removeClass('hide')
-		console.log $('#outfit_episode_id').html()
 		$('#outfit_episode_id').html('')
-		$.each data, (i, obj) ->
-			$('#outfit_episode_id').append "<option id='"+obj.id+"'>"+obj.name+"</option>"
+		$.each data, (key, value) ->
+      $('#outfit_episode_id').append "<optgroup label='Season " +key+"'></optgroup>"
+      $.each value, (i,obj) ->
+        $('#outfit_episode_id').append "<option id='"+obj.id+"'>"+obj.name+"</option>"
+
+$(document).on "change","#outfit_show", ->
+	show_data = {show_id : $('#outfit_show').val()}
+	$.get "/shows/get_actors.json", show_data , (data) ->
+		$('#actors').removeClass('hide')
+		$('#outfit_actor_id').html('')
+		$.each data, (i, value) ->
+			$('#outfit_actor_id').append "<option id='"+value.id+"'>"+value.name+"</option>"

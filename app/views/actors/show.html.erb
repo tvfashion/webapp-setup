@@ -8,10 +8,11 @@
     <div class="hide-for-small">
         <div id="featured">
             <div class="fanart">
-                <% fanart = @show.banners.where("banner_type = 'fanart'").first %>
-                <%= image_tag("http://thetvdb.com/banners/" + fanart.image_path) %>
+                <% act_show = @actor.show %>
+                <% fanart = act_show.banners.where("banner_type = 'fanart'").first %>
+                <%= image_tag(fanart.image_path) %>
                 <div class="fanart-overlay">
-                    <%= image_tag("http://thetvdb.com/banners/" + @actor.image) %>
+                    <%= image_tag(@actor.image) %>
                     <div class="fanart-description">
                         <div class="fanart-content">
                             <h1><%= @actor.role %></h1>

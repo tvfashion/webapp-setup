@@ -75,9 +75,18 @@ class ShowsController < ApplicationController
 
   def get_episodes
     show = Show.where(id: params[:show_id]).first
-    @episodes = show.episodes
+    @episodes = show.episodes.select('id,season_number,name')
+    @episodes = @episodes.group_by {|e| e.season_number}
     respond_to do |format|
-      format.json {render json: @episodes.as_json(only: [:id, :name])}
+      format.json {render json: @episodes.to_json}
+    end
+  end
+
+  def get_actors
+    show = Show.where(id: params[:show_id]).first
+    @actors = show.actors
+    respond_to do |format|
+      format.json {render json: @actors.as_json(only: [:id, :name])}
     end
   end
 

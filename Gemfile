@@ -52,6 +52,7 @@ group :development do
   gem 'html2haml'
   gem 'quiet_assets'
   gem "table_print"
+  gem 'pry-debugger'
 end
 
 # Use ActiveModel has_secure_password

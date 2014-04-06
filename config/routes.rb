@@ -7,7 +7,9 @@ Tvshows::Application.routes.draw do
   devise_for :users
   root 'shows#index'
 
-  resources :shows
+  resources :shows do
+    get :get_episodes, on: :collection
+  end
   resources :fashions
   resources :episodes
   resources :actors

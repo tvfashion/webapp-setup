@@ -73,6 +73,14 @@ class ShowsController < ApplicationController
     redirect_to action: :index
   end
 
+  def get_episodes
+    show = Show.where(id: params[:show_id]).first
+    @episodes = show.episodes
+    respond_to do |format|
+      format.json {render json: @episodes.as_json(only: [:id, :name])}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_show

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :show %><br>
-    <%= f.select :show, Show.all.collect{|show| [show.name, show.id]} %>
+    <%= f.select :show, Show.all.collect{|show| [show.name, show.id]},include_blank: 'Select Show' %>
   </div>
   <div class="field hide" id='episodes'>
     <%= f.label :episode_id %><br>

@@ -25,7 +25,7 @@ class OutfitsController < ApplicationController
   # POST /outfits.json
   def create
     @outfit = Outfit.new(outfit_params)
-
+    binding.pry
     respond_to do |format|
       if @outfit.save
         format.html { redirect_to @outfit, notice: 'Outfit was successfully created.' }

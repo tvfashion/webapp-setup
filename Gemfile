@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -31,7 +32,7 @@ gem 'rolify'
 gem 'cancan'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'therubyracer'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -53,6 +54,12 @@ group :development do
   gem 'quiet_assets'
   gem "table_print"
   gem 'pry-debugger'
+
+end
+
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
 end
 
 # Use ActiveModel has_secure_password

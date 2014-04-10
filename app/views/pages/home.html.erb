@@ -42,11 +42,13 @@
                 <div class="row">
                   <div class="large-12 columns">
                     <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-4">
-                        <% sorted = @shows.order("RAND()").first(4) %>
+                        <% sorted = @shows.first(4) %>
                         <% sorted.each do |show| %>
                         <% poster = show.banners.where("banner_type = 'poster'").first %>
                         <li> 
+                        <% if poster.present? %>
                        <%= link_to(image_tag(poster.image_path), show_path(show)) %> <!-- Display actor image and link to their page -->
+                        <% end %>
                         </li>
                         <% end %>                
                     </ul>
@@ -57,11 +59,13 @@
                 <div class="row">
                   <div class="large-12 columns">
                     <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-4">
-                        <% sorted = @actors.order("RAND()").first(4) %>
+                        <% sorted = @actors.first(4) %>
                         <% sorted.each do |act| %>
                         <% if act.image != nil %> <!-- Checks to see if they have image -->
-                        <li> 
+                        <li>
+                        <% if act.present? %>
                        <%= link_to( image_tag(act.image), actor_path(act)) %> <!-- Display actor image and link to their page -->
+                       <% end %>
                         </li>
                         <% end %>
                         <% end %>  

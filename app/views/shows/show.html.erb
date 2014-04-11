@@ -42,7 +42,7 @@
             while $i < @show.seasons_count do %>
         
         <%     $i +=1   %> 
-        <% cover = @show.banners.where("season = ?", $i).take(1) %> 
+        <% cover = @show.banners.where("season = ?", $i.to_s).take(1) %> 
         <% if cover.first != nil %>
         <li>
         <%= link_to( image_tag(cover.first.image_path), season_path(@show.id, $i)) %>

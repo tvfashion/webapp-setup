@@ -16,10 +16,10 @@
   <tbody>
     <% @outfits.each do |outfit| %>
       <tr>
-        <td><%= outfit.episode %></td>
-        <td><%= outfit.actor %></td>
+        <td><%= outfit.episode.inspect %></td>
+        <td><%= outfit.actor.inspect %></td>
         <td><%= outfit.name %></td>
-        <td><%= outfit.image %></td>
+        <td><%= image_tag(outfit.image) %></td>
         <td><%= link_to 'Show', outfit %></td>
         <td><%= link_to 'Edit', edit_outfit_path(outfit) %></td>
         <td><%= link_to 'Destroy', outfit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
